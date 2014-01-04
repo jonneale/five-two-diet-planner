@@ -3,4 +3,10 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.5.1"]])
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [compojure "1.1.5"]
+                 [ring "1.2.0"]
+                 [org.clojure/data.csv "0.1.2"]]
+  :plugins [[lein-ring "0.8.5"]]
+  :min-lein-version "2.0.0"
+  :main five-two-diet.web)
