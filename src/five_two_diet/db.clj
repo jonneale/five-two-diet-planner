@@ -2,9 +2,26 @@
   (:require [clojure.java.jdbc :as jdbc]))
 
 
+(def env
+  (keyword (get (System/getenv)
+                "APP_ENV"
+                "dev")))
+
+(def db-credentials
+  {:url      (get (System/getenv "DB_URL"))
+   :db-name  (get (System/getenv "DB_NAME"))
+   :username (get (System/getenv "DB_USERNAME"))
+   :password (get (System/getenv "DB_PASSWORD"))})
+
 (def db
-  (if-let [db-url (get (System/getenv) "CLEARDB_DATABASE_URL")]
-    (str "jdbc:" db-url)
+  (if (:url db-credentials)
+    (str "jdbc:mysql://"
+         (:url db-credentials)
+         "/"
+         (:db-name db-credentials)
+         "?user=" (:username db-credentials)
+         "&password=" (:password db-credentials)
+         "&reconnect=true")
     "jdbc:mysql://localhost:3306/five_two?user=root"))
 
 (defn get-url
