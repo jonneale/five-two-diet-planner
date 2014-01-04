@@ -3,9 +3,13 @@
 
 
 (def db
-  (if-let [db-url (get (System/getenv "CLEARDB_DATABASE_URL"))]
+  (if-let [db-url (get (System/getenv) "CLEARDB_DATABASE_URL")]
     (str "jdbc:" db-url)
     "jdbc:mysql://localhost:3306/five_two?user=root"))
+
+(defn get-url
+  []
+  db)
 
 (defn db-connection
   []
