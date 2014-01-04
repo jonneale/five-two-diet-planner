@@ -22,6 +22,7 @@
   (jdbc/query (db-connection)
                    ["SELECT meal_name, description from meals"]))
 (defn save-recipe
-  []
+  [meal-type name description calories url]
   (jdbc/execute! (db-connection)
-                 ["INSERT INTO passwords",]))
+                 ["INSERT INTO meals VALUES(0,?,?,?,?,?)"
+                  meal-type name description url calories]))

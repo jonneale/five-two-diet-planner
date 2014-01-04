@@ -3,24 +3,26 @@
             [compojure.route    :as route]
             [ring.adapter.jetty     :as jetty]
             [ring.middleware.params :as params]
+            [ring.util.response     :as response]
             [clojure.data.csv       :as csv]
             [clojure.java.io        :as io]
-            [five-two-diet.views.add-recipe :as add-recipe]
+            [five-two-diet.views.recipes :as recipes]
             [five-two-diet.db       :as db]))
 
 (compojure/defroutes app
   ;;http://localhost:8080
   (GET "/"
        []
-       (db/get-all-recipes))
+       (recipes/show (db/get-all-recipes)))
 
   (GET "/add-recipe"
        []
-       (add-recipe/render))
+       (recipes/add))
 
   (POST "/recipe"
         [meal-type name description calories url]
-        (clojure.string/join " - " [meal-type name description calories url]))
+        (db/save-recipe meal-type name description (Integer/parseInt (str (or calories 0))) url)
+        (response/redirect-after-post "/"))
 
   (route/resources "/"))
 

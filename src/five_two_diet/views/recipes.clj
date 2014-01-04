@@ -1,9 +1,13 @@
-(ns five-two-diet.views.add-recipe
+(ns five-two-diet.views.recipes
   (:require
    [five-two-diet.views.layout :as layout]
    [hiccup.core :as hiccup]))
 
-(defn render
+(defn show
+  [recipes]
+  recipes)
+
+(defn add
   []
   (hiccup/html (layout/shared
                 [:div {:class "col-md-9"}
