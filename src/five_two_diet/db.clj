@@ -12,6 +12,9 @@
     (str "jdbc:" (get (System/getenv "CLEARDB_DATABASE_URL")))
     "jdbc:mysql://localhost:3306/five_two?user=root"))
 
+(defn get-url
+  []
+  db)
 
 (defn db-connection
   []

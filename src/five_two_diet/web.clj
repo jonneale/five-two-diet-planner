@@ -24,6 +24,10 @@
         (db/save-recipe meal-type name description (Integer/parseInt (str (or calories 0))) url)
         (response/redirect-after-post "/"))
 
+  (GET "/debug"
+       []
+         (db/get-url))
+
   (route/resources "/"))
 
 (defn -main [& [port]]
