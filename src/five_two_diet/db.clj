@@ -8,7 +8,7 @@
                 "dev")))
 
 (def db
-  (if (= "production" env)
+  (if (= :production env)
     (str "jdbc:" (get (System/getenv "CLEARDB_DATABASE_URL")))
     "jdbc:mysql://localhost:3306/five_two?user=root"))
 
