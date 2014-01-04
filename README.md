@@ -1,10 +1,6 @@
 # five-two-diet
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+A simple clojure web app allowing daily meal plans consisting of 500 calories or less to be created
 
 ## License
 
