@@ -1,5 +1,6 @@
 (ns five-two-diet.web
-  (:require [compojure.core     :as compojure :refer [GET]]
+  (:require [compojure.core     :as compojure :refer [GET POST]]
+            [compojure.route    :as route]
             [ring.adapter.jetty     :as jetty]
             [ring.middleware.params :as params]
             [clojure.data.csv       :as csv]
@@ -14,7 +15,13 @@
 
   (GET "/add-recipe"
        []
-       (add-recipe/render)))
+       (add-recipe/render))
+
+  (POST "/recipe"
+        [meal-type name description calories recipe-url]
+        )
+
+  (route/resources "/"))
 
 (defn -main [& [port]]
   (println (str "Starting the switch-api on specified port...."))
