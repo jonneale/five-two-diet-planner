@@ -7,6 +7,8 @@
                  [compojure "1.1.5"]
                  [ring "1.2.0"]
                  [hiccup "1.0.4"]
+                 [org.clojure/java.jdbc "0.3.0-alpha4"]
+                 [mysql/mysql-connector-java "5.1.25"]
                  [org.clojure/data.csv "0.1.2"]]
   :plugins [[lein-ring "0.8.5"]]
   :min-lein-version "2.0.0"
