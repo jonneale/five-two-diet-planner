@@ -5,7 +5,24 @@
 
 (defn show
   [recipes]
-  recipes)
+  (hiccup/html (layout/shared
+                [:h2 "Available recipes"]
+                [:table {:class "table table-hover table-condensed table-striped"}
+                 [:thead
+                  [:tr
+                   [:th "Meal type"]
+                   [:th "Meal name"]
+                   [:th "Meal description"]
+                   [:th "Calories"]
+                   [:th "Recipe Url"]]]
+                 [:tbody
+                  (for [{:keys [meal_type meal_name description calories recipe_url]} recipes]
+                    [:tr
+                     [:td meal_type]
+                     [:td meal_name]
+                     [:td description]
+                     [:td calories]
+                     [:td recipe_url]])]])))
 
 (defn add
   []
