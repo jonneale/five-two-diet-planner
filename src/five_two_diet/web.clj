@@ -26,8 +26,7 @@
 
   (GET "/debug"
        []
-       (str "Env: "    db/env
-            " db-url " (db/get-url)))
+       db/db)
 
   (route/resources "/"))
 
