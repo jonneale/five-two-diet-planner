@@ -8,10 +8,10 @@
                 "dev")))
 
 (def db-credentials
-  {:url      (get (System/getenv "DB_URL"))
-   :db-name  (get (System/getenv "DB_NAME"))
-   :username (get (System/getenv "DB_USERNAME"))
-   :password (get (System/getenv "DB_PASSWORD"))})
+  {:url      (get (System/getenv) "DB_URL")
+   :db-name  (get (System/getenv) "DB_NAME")
+   :username (get (System/getenv) "DB_USERNAME")
+   :password (get (System/getenv) "DB_PASSWORD")})
 
 (def db
   (if (:url db-credentials)
