@@ -35,7 +35,7 @@
 (defn get-all-recipes
   []
   (jdbc/query (db-connection)
-                   ["SELECT meal_name, description from meals"]))
+                   ["SELECT * from meals"]))
 (defn save-recipe
   [meal-type name description calories url]
   (jdbc/execute! (db-connection)
