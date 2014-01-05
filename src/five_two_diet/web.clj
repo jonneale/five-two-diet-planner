@@ -7,17 +7,22 @@
             [clojure.data.csv       :as csv]
             [clojure.java.io        :as io]
             [five-two-diet.views.recipes :as recipes]
+            [five-two-diet.views.home :as home]
             [five-two-diet.db       :as db]))
 
 (compojure/defroutes app
   ;;http://localhost:8080
   (GET "/"
        []
-       (recipes/show (db/get-all-recipes)))
+       (home/show))
 
   (GET "/add-recipe"
        []
        (recipes/add))
+
+  (GET "/recipes"
+       []
+       (recipes/show (db/get-all-recipes)))
 
   (POST "/recipe"
         [meal-type name description calories url]

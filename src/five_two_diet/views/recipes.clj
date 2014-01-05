@@ -14,15 +14,17 @@
                    [:th "Meal name"]
                    [:th "Meal description"]
                    [:th "Calories"]
-                   [:th "Recipe Url"]]]
+                   [:th "Recipe Url"]
+                   [:th "Like it?"]]]
                  [:tbody
-                  (for [{:keys [meal_type meal_name description calories recipe_url]} recipes]
-                    [:tr
+                  (for [{:keys [id meal_type meal_name description calories recipe_url]} recipes]
+                    [:tr {:id id}
                      [:td meal_type]
                      [:td meal_name]
                      [:td description]
                      [:td calories]
-                     [:td recipe_url]])]])))
+                     [:td recipe_url]
+                     [:td [:button {:class "btn btn-default"} "No, hide"]]])]])))
 
 (defn add
   []
